@@ -1,22 +1,24 @@
-sources = virtual_taps/virtual_tap_bridge.sv \
-					virtual_taps/virtual_taps.sv\
-					virtual_taps/virtual_tb.sv\
-					single_tap/tap_top.sv
+rtl_sources = rtl/virtual_tap_bridge.sv\
+	    				rtl/virtual_taps.sv\
+			    		rtl/tap_top.sv 
 
-top = virtual_tb
+tb_sources =	tb/virtual_tb.sv
+
+top_module = virtual_tb
 
 
-# sources = clk_gen/top.sv clk_gen/top_tb.sv
-# top = top_tb
+sources = ${rtl_sources} ${tb_sources} 
 
 all:
 	make verilate
 	make simulate
 
-
 verilate:
-	verilator --trace --binary ${sources} --top-module ${top}
+	verilator --trace --binary ${sources} --top-module ${top_module}
 
 simulate:
-	./obj_dir/V${top}
+	./obj_dir/V${top_module}
 
+wave:
+	gtkwave wave.vcd &
+	

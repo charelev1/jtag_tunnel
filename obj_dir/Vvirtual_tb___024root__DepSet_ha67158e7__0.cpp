@@ -35,12 +35,12 @@ VL_INLINE_OPT VlCoroutine Vvirtual_tb___024root___eval_initial__TOP__Vtiming__2(
     while (1U) {
         co_await vlSelfRef.__VdlySched.delay(0x1f4ULL, 
                                              nullptr, 
-                                             "virtual_taps/virtual_tb.sv", 
+                                             "tb/virtual_tb.sv", 
                                              16);
         vlSelfRef.virtual_tb__DOT__clk = 1U;
         co_await vlSelfRef.__VdlySched.delay(0x1f4ULL, 
                                              nullptr, 
-                                             "virtual_taps/virtual_tb.sv", 
+                                             "tb/virtual_tb.sv", 
                                              17);
         vlSelfRef.virtual_tb__DOT__clk = 0U;
     }
@@ -700,7 +700,7 @@ void Vvirtual_tb___024root___eval(Vvirtual_tb___024root* vlSelf) {
 #ifdef VL_DEBUG
             Vvirtual_tb___024root___dump_triggers__nba(vlSelf);
 #endif
-            VL_FATAL_MT("virtual_taps/virtual_tb.sv", 4, "", "NBA region did not converge.");
+            VL_FATAL_MT("tb/virtual_tb.sv", 4, "", "NBA region did not converge.");
         }
         __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
         __VnbaContinue = 0U;
@@ -711,7 +711,7 @@ void Vvirtual_tb___024root___eval(Vvirtual_tb___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vvirtual_tb___024root___dump_triggers__act(vlSelf);
 #endif
-                VL_FATAL_MT("virtual_taps/virtual_tb.sv", 4, "", "Active region did not converge.");
+                VL_FATAL_MT("tb/virtual_tb.sv", 4, "", "Active region did not converge.");
             }
             vlSelfRef.__VactIterCount = ((IData)(1U) 
                                          + vlSelfRef.__VactIterCount);
